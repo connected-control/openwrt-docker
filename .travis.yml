@@ -10,12 +10,12 @@ before_script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 script:
-  - curl -s "$BASE_URL/$ROOTFS_URL" | docker import - "$DOCKER_USERNAME/openwrt-rootfs:$TAG"
-  - docker push "$DOCKER_USERNAME/openwrt-rootfs:$TAG"
-  - docker build -t "$DOCKER_USERNAME/openwrt:$TAG"
-        --build-arg "DOCKER_USERNAME=$DOCKER_USERNAME"
+  - curl -s "$BASE_URL/$ROOTFS_URL" | docker import - "$DOCKER_NAMESPACE/openwrt-rootfs:$TAG"
+  - docker push "$DOCKER_NAMESPACE/openwrt-rootfs:$TAG"
+  - docker build -t "$DOCKER_NAMESPACE/openwrt:$TAG"
+        --build-arg "DOCKER_USERNAME=$DOCKER_NAMESPACE"
         --build-arg "TAG=$TAG" .
-  - docker push "$DOCKER_USERNAME/openwrt:$TAG"
+  - docker push "$DOCKER_NAMESPACE/openwrt:$TAG"
 
 env:
   global:

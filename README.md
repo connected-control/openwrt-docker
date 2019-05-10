@@ -6,8 +6,8 @@ other applications may access the service.
 ## Tags
 
 * `latest`: uses latest snapshot
-* `stable`: uses latest release (17.03)
-* `arm-latest`: uses latest arm64 snapshot
+* `v18.06.2`: uses 18.06.2 stable release
+* `v17.01.4`: uses 17.01.4 stable release
 
 
 ## root.tar.gz
